@@ -53,7 +53,7 @@ class MySinglyLinkedList {
     return this;
   }
 
-  prepend(value) {
+  prepend(value) { //agrega elemento al princicipio
     const newNode = new Node(value);
 
     newNode.next = this.head;
@@ -69,6 +69,10 @@ class MySinglyLinkedList {
       return this.append(value);
     }
 
+    if (index === 0) {
+      return this.prepend(value);
+    }
+
     const newNode = new Node(value); // Nodo nuevo
     const firstPointer = this.getTheIndex(index - 1); //Nodo anterior al index
     const holdingPointer = firstPointer.next; //Nodo que queda colgando
@@ -79,7 +83,7 @@ class MySinglyLinkedList {
     this.length++;
   }
 
-  getTheIndex(index) {
+  getTheIndex(index) {//searchNode
     let counter = 0;
     let currentNode = this.head;
 
